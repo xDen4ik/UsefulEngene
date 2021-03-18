@@ -202,7 +202,6 @@ $this->title = 'Вход в админ панель';
             <!-- /.col -->
         </div>
 
-
         <?php ActiveForm::end(); ?>
         <div class="underlay-photo"></div>
         <div class="underlay-black"></div> 
