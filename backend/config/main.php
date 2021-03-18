@@ -48,5 +48,6 @@ return [
        
     ],
     'homeUrl' => '/admin',
+    'name'=>'Useful Engene',
     'params' => $params,
 ];

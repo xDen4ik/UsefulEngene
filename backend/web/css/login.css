@@ -1,7 +1,4 @@
-<?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-$this->registerCss('@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 body,
 html {
@@ -157,57 +154,4 @@ input:focus :-ms-input-placeholder {
     to {
         -webkit-filter: grayscale(30%) hue-rotate(360deg);
     }
-}');
-
-$this->title = 'Вход в админ панель';
-?>
-<div class="login-box">
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'login-form', 'enableClientValidation' => false]); ?>
-
-        <p class="login-text">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-lock fa-stack-1x"></i>
-            </span>
-        </p>
-
-        <?= $form->field($model, 'username')->textInput(
-            [
-                'maxlength' => 255, 
-                'class' => 'login-username',
-                'autofocus' => "true",
-                'placeholder' => "Логин"
-            ])->label(false); ?>
-
-        <?= $form->field($model, 'password')->textInput(
-            [
-                'maxlength' => 255, 
-                'class' => 'login-username',
-                'autofocus' => "true",
-                'placeholder' => "Пароль",
-                'type' => 'password'
-            ])->label(false); ?>
-
-        <div class="row">
-            <div class="col-xs-8">
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            </div>
-            <!-- /.col -->
-            <div class="col-xs-4">
-                <?= Html::submitButton('Вход', ['class' => 'login-submit', 'name' => 'login-button']) ?>
-            </div>
-            <!-- /.col -->
-        </div>
-
-
-        <?php ActiveForm::end(); ?>
-        <div class="underlay-photo"></div>
-        <div class="underlay-black"></div> 
-        <!-- /.social-auth-links -->
-
-    </div>
-    <!-- /.login-box-body -->
-</div><!-- /.login-box -->
+}
