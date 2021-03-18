@@ -37,14 +37,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'admin' => 'backend/index',
             ],
         ],
-        */
+       
     ],
+    'homeUrl' => '/admin',
     'params' => $params,
 ];
