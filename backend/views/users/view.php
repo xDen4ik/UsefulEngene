@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-$this->title = $model->id;
+$this->title = 'Пользователь ' .$model->username;
 $this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -23,6 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    
+    <? $date_created_at = new DateTime(); ?>
+    <? $date_created_at->setTimestamp($date_created_at->created_at); ?>
+    <? $date_updated_at = new DateTime(); ?>
+    <? $date_updated_at->setTimestamp($date_updated_at->updated_at); ?>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -35,8 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'status',
             'id_user_role',
-            'created_at',
             'updated_at',
+            [
+                'label' => 'Дата регистрации',
+                'value' => $date_created_at->format('Y-m-d H:i:s'),
+            ],
+            [
+                'label' => 'Последняя дата редактирования',
+                'value' => $date_updated_at->format('Y-m-d H:i:s'),
+            ],
         ],
     ]) ?>
 
