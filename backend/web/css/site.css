@@ -24,11 +24,11 @@ body.blank .wrap {
     padding: 15px;
 }
 
-body.blank .wrap > div {
+body.blank .wrap>div {
     width: 100%;
 }
 
-.wrap > .container {
+.wrap>.container {
     padding: 70px 15px 20px;
 }
 
@@ -54,8 +54,11 @@ body.blank .wrap > div {
     font-style: italic;
 }
 
+
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
+
+a.asc:after,
+a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
@@ -67,11 +70,13 @@ a.asc:after, a.desc:after {
 }
 
 a.asc:after {
-    content: /*"\e113"*/ "\e151";
+    content: /*"\e113"*/
+    "\e151";
 }
 
 a.desc:after {
-    content: /*"\e114"*/ "\e152";
+    content: /*"\e114"*/
+    "\e152";
 }
 
 .sort-numerical a.asc:after {
@@ -114,26 +119,34 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+
 /* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
+
+.nav li>form>button.logout {
     padding: 15px;
     border: none;
 }
 
 @media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
+    .nav li>form>button.logout {
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
     }
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
+.nav>li>form>button.logout:focus,
+.nav>li>form>button.logout:hover {
     text-decoration: none;
 }
 
-.nav > li > form > button.logout:focus {
+.nav>li>form>button.logout:focus {
     outline: none;
+}
+
+p.time {
+    color: white;
+    font-size: large;
+    text-align: center;
 }

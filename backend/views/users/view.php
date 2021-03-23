@@ -25,9 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     
     <? $date_created_at = new DateTime(); ?>
-    <? $date_created_at->setTimestamp($date_created_at->created_at); ?>
+    <? $date_created_at->setTimestamp($model->created_at); ?>
     <? $date_updated_at = new DateTime(); ?>
-    <? $date_updated_at->setTimestamp($date_updated_at->updated_at); ?>
+    <? $date_updated_at->setTimestamp($model->updated_at); ?>
 
     <?= DetailView::widget([
         'model' => $model,

@@ -16,7 +16,7 @@
 
         <!-- search form -->
         <div class="sidebar-form">
-                <p id="time" style="color: white;font-size: large;font-family: 'Glyphicons Halflings';margin: inherit;"></p>
+                <p class="time" id="time"></p>
         </div>
         <!-- /.search form -->
 

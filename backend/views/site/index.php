@@ -1,30 +1,43 @@
 <?php
 
 /* @var $this yii\web\View */
-
-$this->title = 'Useful Engene';
 ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <input id="users_count" value=<?=$users_count?> hidden></input>
+<input id="users_visit" value=<?=$users_visit?> hidden></input>
+
+
 <div class="site-index">
-    <canvas id="myChart" width="100%" height="45px"></canvas>
+    <canvas id="myChart" width="100%" height="30px"></canvas>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Пользователи'],
+                labels: ['Статистика'],
                 datasets: [{
                     label: 'Количество пользователей',
                     data: [$("#users_count").val()],
                     backgroundColor: [
-                        'rgba(255, 255, 132, 0.2)',
+                        'rgb(237, 14, 14)',
                     ],
                     borderColor: [
-                        'rgba(255, 255, 132, 1)',
+                        'rgb(237, 14, 14)',
                     ],
                     borderWidth: 1
-                }]
+                },
+                {
+                    label: 'Посещения сегодня',
+                    data: [$("#users_visit").val()],
+                    backgroundColor: [
+                        'rgb(125, 232, 19)',
+                    ],
+                    borderColor: [
+                        'rgb(125, 232, 19)',
+                    ],
+                    borderWidth: 2
+                }
+                ]
             },
             options: {
                 scales: {
@@ -33,7 +46,11 @@ $this->title = 'Useful Engene';
                             beginAtZero: true
                         }
                     }]
-                }
+                },
+                legend: {
+                    position: 'top',
+                },
+                responsive: true,
             }
         });
     </script>

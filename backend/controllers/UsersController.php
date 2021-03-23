@@ -8,7 +8,8 @@ use common\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use common\models\UploadedFile;
+use common\models\UploadFiles;
 /**
  * UsersController implements the CRUD actions for User model.
  */
@@ -85,8 +86,23 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $imageName = $model->img;
+        $date = new \DateTime();
+        $uploadImage = new UploadFiles();
+        $model->updated_at = intval($date->format('U'));
+        if ($model->load(Yii::$app->request->post())) {
+            $uploadImage->imgFile = UploadedFile::getInstance($uploadImage, 'imgFile');
+            var_dump($uploadImage);
+            die();
+            if ($filename = $uploadImage->uploadAvatar()) {
+                if (!is_dir($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->photo)) {
+                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->img)) {
+                        unlink($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->img);
+                    }
+                }
+                $model->img = $filename;
+                $model->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

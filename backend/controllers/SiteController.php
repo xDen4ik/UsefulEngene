@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
+use backend\models\AdminStatistics;
 /**
  * Site controller
  */
@@ -62,8 +63,13 @@ class SiteController extends Controller
     {
         $users = new User();
         $users_count = User::find()->count();
+
+        $users_count_visit = new AdminStatistics;
+        $users_visit = AdminStatistics::find()->Where('visit_time >= CURDATE()')->count();
+
         return $this->render('index', [
-            'users_count' => $users_count
+            'users_count' => $users_count,
+            'users_visit' => $users_visit
         ]);
     }
 
