@@ -8,8 +8,8 @@ use common\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\UploadedFile;
 use common\models\UploadFiles;
+use yii\web\UploadedFile;
 /**
  * UsersController implements the CRUD actions for User model.
  */
@@ -86,28 +86,35 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $imageName = $model->img;
-        $date = new \DateTime();
         $uploadImage = new UploadFiles();
+
+        $date = new \DateTime();
         $model->updated_at = intval($date->format('U'));
-        if ($model->load(Yii::$app->request->post())) {
-            $uploadImage->imgFile = UploadedFile::getInstance($uploadImage, 'imgFile');
-            var_dump($uploadImage);
-            die();
-            if ($filename = $uploadImage->uploadAvatar()) {
-                if (!is_dir($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->photo)) {
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->img)) {
-                        unlink($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'avatars' . DIRECTORY_SEPARATOR . $model->img);
-                    }
+        
+        if ($model->load(Yii::$app->request->post()) && $uploadImage->load(Yii::$app->request->post())) {
+            $uploadImage->imgFile = UploadedFile::getInstances($uploadImage, 'imgFile');
+            if ($uploadImage->imgFile === NULL || empty($uploadImage->imgFile)) {
+                $model->img = $model->img;
+            } else {
+                $img_name = $uploadImage->uploadUserAvatar();
+                if ($img_name) {
+                    $model->img = $img_name;
+                } else {
+                    $model->img = $model->img;
                 }
-                $model->img = $filename;
-                $model->save();
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $model->save();
+
+            return $this->redirect(['view', 
+                'id' => $model->id,
+                'uploadImage' => $uploadImage,
+            ]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'uploadImage' => $uploadImage,
         ]);
     }
 

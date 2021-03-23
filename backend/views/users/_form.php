@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'imgFile')->fileInput(['maxlength' => true])->label('Фото') ?>
+    <?= $form->field($uploadImage, 'imgFile')->fileInput(['maxlength' => true])->label('Фото') ?>
 
     <?= $form->field($model, 'email')->textInput() ?>
 

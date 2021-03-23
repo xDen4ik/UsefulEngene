@@ -13,6 +13,7 @@ $this->params['breadcrumbs'][] = 'Обновить';
 <div class="user-update">
 
     <?= $this->render('_form', [
+        'uploadImage' => $uploadImage,
         'model' => $model,
     ]) ?>
 
