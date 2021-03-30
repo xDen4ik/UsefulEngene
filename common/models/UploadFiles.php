@@ -38,4 +38,12 @@ class UploadFiles extends Model
             return false;
         }
     }
+
+    public function deleteUserAvatar($img_path)
+    {
+        try {
+            unlink($_SERVER['DOCUMENT_ROOT'] . $img_path);
+        } catch(CDbException $e){
+		}
+    }
 }

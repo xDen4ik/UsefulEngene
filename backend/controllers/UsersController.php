@@ -98,12 +98,12 @@ class UsersController extends Controller
             } else {
                 $img_name = $uploadImage->uploadUserAvatar();
                 if ($img_name) {
+                    $uploadImage->deleteUserAvatar($model->img);
                     $model->img = $img_name;
                 } else {
                     $model->img = $model->img;
                 }
             }
-
             $model->save();
 
             return $this->redirect(['view', 
