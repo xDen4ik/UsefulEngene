@@ -746,7 +746,7 @@ body {
 }
 
 .intro--banner p {
-    font-size: 25px;
+    font-size: 30px;
     position: relative;
     font-weight: 450;
     line-height: 1;
@@ -760,6 +760,21 @@ body {
     text-transform: uppercase;
     background-color: transparent;
     border: none
+}
+
+.message {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 60px;
+}
+
+.message textarea {
+    height: 100%;
+    width: 100%;
+    resize: none;
 }
 
 .intro--banner button .btn-background {
