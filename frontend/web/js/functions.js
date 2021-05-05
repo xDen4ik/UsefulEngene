@@ -2,10 +2,9 @@
 
 $(document).ready(function() {
 
-    $('#contact-form').on('submit', function(event) {
-        event.preventDefault();
-        var data = $(this).serialize();
-        var action = $(this).attr("action");
+    $("#btn-send").click(function(event) {
+        var data = $("#contact-form").serialize();
+        var action = $("#contact-form").attr("action");
         $.ajax({
             url: action,
             type: "POST",
@@ -24,15 +23,15 @@ $(document).ready(function() {
                     for (var i = 0 in error) {
                         new Noty({
                             type: 'error',
-                            layout: 'topCenter',
+                            layout: 'topRight',
                             text: error[i],
                             timeout: 2000,
                         }).show();
                     }
-                    event.preventDefault();
                 }
             },
         });
+        event.preventDefault();
     });
 
     // DOMMouseScroll included for firefox support

@@ -91,7 +91,7 @@ use  yii\helpers\Url;
 							<div class="work--lockup">
 								<ul class="slider">
 									<li class="slider--item slider--item-left">
-										<a href="https://safehouse.moscow/">
+										<a href="https://safehouse.moscow/" target="_blank">
 											<div class="slider--item-image">
 												<img src="/frontend/web/img/frontend/safehouse.jpg" alt="Safehouse">
 											</div>
@@ -99,7 +99,7 @@ use  yii\helpers\Url;
 										</a>
 									</li>
 									<li class="slider--item slider--item-center">
-										<a href="http://martinkids.mcdir.ru/">
+										<a href="http://martinkids.mcdir.ru/" target="_blank">
 											<div class="slider--item-image">
 												<img src="/frontend/web/img/frontend/duplom.jpg" alt="Duplom">
 											</div>
@@ -108,7 +108,7 @@ use  yii\helpers\Url;
 										</a>
 									</li>
 									<li class="slider--item slider--item-right">
-										<a href="http://xn--80aclb1abqfcfh0agd.xn--p1ai/">
+										<a href="http://xn--80aclb1abqfcfh0agd.xn--p1ai/" target="_blank">
 											<div class="slider--item-image">
 												<img src="/frontend/web/img/frontend/beton.jpg" alt="Beton">
 											</div>
@@ -116,7 +116,7 @@ use  yii\helpers\Url;
 										</a>
 									</li>
 									<li class="slider--item">
-										<a href="https://ilab73.ru/">
+										<a href="https://ilab73.ru/" target="_blank">
 											<div class="slider--item-image">
 												<img src="/frontend/web/img/frontend/remonline.jpg" alt="Remonline">
 											</div>
@@ -124,7 +124,7 @@ use  yii\helpers\Url;
 										</a>
 									</li>
 									<li class="slider--item">
-										<a href="https://hlc.com.cy/">
+										<a href="https://hlc.com.cy/" target="_blank">
 											<div class="slider--item-image">
 												<img src="/frontend/web/img/frontend/cosmetics.jpg" alt="Сosmetics">
 											</div>
@@ -186,9 +186,9 @@ use  yii\helpers\Url;
 										<a href="tel:+380713302521">+38 071 330 25 21</a>
 									</div>
 									<ul class="modal--options">
-										<li><a href="https://github.com/xDen4ik">GitHub</a></li>
-										<li><a href="https://vk.com/dennnnnnnnnnn">VK</a></li>
-										<li><a href="https://t.me/KekTor">Telegram</a></li>
+										<li><a href="https://github.com/xDen4ik" target="_blank">GitHub</a></li>
+										<li><a href="https://vk.com/dennnnnnnnnnn" target="_blank">VK</a></li>
+										<li><a href="https://t.me/KekTor" target="_blank"> Telegram</a></li>
 									</ul>
 								</div>
 							</div>
@@ -217,7 +217,7 @@ use  yii\helpers\Url;
 							<div class="message">
 								<?= $form->field($feedback, 'message')->textarea(["id" => "message", 'spellcheck' => false])->label(false) ?>
 							</div>
-							<?= Html::submitButton('Отправить', ['class' => 'btn-send']) ?>
+							<?= Html::button('Отправить', ['class' => 'btn-send', "type" => "button", "id" => "btn-send"]) ?>
 							<? ActiveForm::end(); ?>
 						</div>
 					</li>

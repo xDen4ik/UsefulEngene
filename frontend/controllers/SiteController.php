@@ -84,6 +84,10 @@ class SiteController extends Controller
 		$feedback = new Feedback();
 		if (\Yii::$app->request->isAjax) {
 			if ($feedback->load(Yii::$app->request->post()) && $feedback->validate()) {
+				if ($feedback->created_at || $feedback->id) {
+					$errors[] = "Хорошая попытка :)";
+					return $this->asJson($errors);
+				}
 				$feedback->save();
 				return "success";
 			} else {
