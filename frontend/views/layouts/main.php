@@ -24,6 +24,8 @@ AppAsset::register($this);
     <meta name="keywords" content="Denis Pacha">
     <meta name="author" content="Denis Pacha">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" rel="stylesheet">
     <?php $this->head() ?>
 </head>
 

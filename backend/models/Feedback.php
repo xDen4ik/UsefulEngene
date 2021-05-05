@@ -15,38 +15,44 @@ use Yii;
  */
 class Feedback extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'feedback';
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public static function tableName()
+	{
+		return 'feedback';
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['name', 'email', 'message'], 'required'],
-            [['message'], 'string'],
-            [['created_at'], 'safe'],
-            [['name', 'email'], 'string', 'max' => 255],
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function rules()
+	{
+		return [
+			[['name', 'email', 'message'], 'required', 'message' => '{attribute} нужно заполнить! '],
+			[['name', 'email'], 'string', 'length' => [0, 255], 'message' => 'Длина {attribute} 255 символов!'],
+			[['name'], 'string', 'message' => '{attribute} должно быть текстовое!'],
+			['email', 'email', 'message' => '{attribute} указан не верно!'],
+			[['created_at'], 'safe'],
+		];
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'message' => 'Message',
-            'created_at' => 'Created At',
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'id' => 'ID',
+			'name' => 'Имя',
+			'email' => 'Email',
+			'message' => 'Сообщение',
+			'created_at' => 'Дата создания',
+		];
+	}
+
+	public function beforeSave($insert)
+	{
+		return parent::beforeSave($insert);
+	}
 }

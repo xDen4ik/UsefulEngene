@@ -2,13 +2,44 @@
 
 $(document).ready(function() {
 
+    $('#contact-form').on('submit', function(event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+        var action = $(this).attr("action");
+        $.ajax({
+            url: action,
+            type: "POST",
+            data: data,
+            complete: function(req, text, error) {
+                if (req.responseText == "success") {
+                    new Noty({
+                        type: 'success',
+                        layout: 'topCenter',
+                        text: "Спасибо за Ваше сообщение!",
+                        timeout: 2000,
+                    }).show();
+                    document.getElementById("contact-form").reset();
+                } else {
+                    error = JSON.parse(JSON.stringify(req.responseJSON));
+                    for (var i = 0 in error) {
+                        new Noty({
+                            type: 'error',
+                            layout: 'topCenter',
+                            text: error[i],
+                            timeout: 2000,
+                        }).show();
+                    }
+                    event.preventDefault();
+                }
+            },
+        });
+    });
+
     // DOMMouseScroll included for firefox support
     var canScroll = true,
         scrollController = null;
     $(this).on('mousewheel DOMMouseScroll', function(e) {
-
         if (!($('.outer-nav').hasClass('is-vis'))) {
-
             var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
             if (delta > 50 && canScroll) {
                 canScroll = false;
