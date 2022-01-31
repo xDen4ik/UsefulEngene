@@ -9,8 +9,7 @@
             </div>
             <div class="pull-left info">
                 <p><?=Yii::$app->user->identity->username ?></p>
-
-                <a href="/admin/users/view?id=<?=Yii::$app->user->id?>"><i class="fa fa-circle text-success"></i> Онлайн</a>
+               <!--  <a href="/admin/users/view?id=<?=Yii::$app->user->id?>"><i class="fa fa-circle text-success"></i></a> -->
             </div>
         </div>
 

@@ -40,3 +40,4 @@ phpunit.phar
 environments/prod/common/config/main-local.php
 environments/dev/common/config/test-local.php
 environments/dev/common/config/main-local.php
+frontend/web/img

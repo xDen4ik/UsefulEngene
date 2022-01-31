@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use Yii;
@@ -8,105 +9,120 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
 use backend\models\AdminStatistics;
+use backend\models\Feedback;
+
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['login', 'error', 'get-message'],
+						'allow' => true,
+					],
+					[
+						'actions' => ['logout', 'index', 'get-message'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
+			'verbs' => [
+				'class' => VerbFilter::className(),
+				'actions' => [
+					'logout' => ['post'],
+					'get-messages' => ['get'],
+				],
+			],
+		];
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function actions()
+	{
+		return [
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
+		];
+	}
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        $users = new User();
-        $users_count = User::find()->count();
+	/**
+	 * Displays homepage.
+	 *
+	 * @return string
+	 */
+	public function actionIndex()
+	{
+		$users = new User();
+		$users_count = User::find()->count();
 
-        $users_count_visit = new AdminStatistics;
-        $users_visit = AdminStatistics::find()->Where('visit_time >= CURDATE()')->count();
+		$users_count_visit = new AdminStatistics;
+		$users_visit = AdminStatistics::find()->Where('visit_time >= CURDATE()')->count();
 
-        return $this->render('index', [
-            'users_count' => $users_count,
-            'users_visit' => $users_visit
-        ]);
-    }
+		return $this->render('index', [
+			'users_count' => $users_count,
+			'users_visit' => $users_visit
+		]);
+	}
 
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+	/**
+	 * Login action.
+	 *
+	 * @return string
+	 */
+	public function actionLogin()
+	{
+		if (!Yii::$app->user->isGuest) {
+			return $this->goHome();
+		}
 
-        $this->layout = 'blank';
+		$this->layout = 'blank';
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
+		$model = new LoginForm();
+		if ($model->load(Yii::$app->request->post()) && $model->login()) {
+			return $this->goBack();
+		} else {
+			$model->password = '';
 
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
+			return $this->render('login', [
+				'model' => $model,
+			]);
+		}
+	}
 
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
+	/**
+	 * Logout action.
+	 *
+	 * @return string
+	 */
+	public function actionLogout()
+	{
+		Yii::$app->user->logout();
 
-         return $this->redirect('/');
-    }
+		return $this->redirect('/');
+	}
+
+	/**
+	 * Get message action.
+	 *
+	 * @return string
+	 */
+	public function actionGetMessage()
+	{
+		$feedback = Feedback::find()->orderBy(['created_at'=>SORT_DESC])->limit(5)->asArray()->all();
+		$feedback['total_count'] =	Feedback::find()->count();
+		return $this->asJson($feedback);
+	}
 }

@@ -41,6 +41,9 @@ class UploadFiles extends Model
 
     public function deleteUserAvatar($img_path)
     {
+		if(empty($img_path)) {
+			return;
+		}
         try {
             unlink($_SERVER['DOCUMENT_ROOT'] . $img_path);
         } catch(CDbException $e){
