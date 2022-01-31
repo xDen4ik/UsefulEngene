@@ -24,8 +24,9 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Меню', 'options' => ['class' => 'header']],
+					['label' => 'Сообщения', 'icon' => 'envelope', 'url' => ['/feedback']],
                     ['label' => 'Пользователи', 'icon' => 'users', 'url' => ['/users']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+/*                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
@@ -53,7 +54,7 @@
                                 ],
                             ],
                         ],
-                    ],
+                    ], */
                 ],
             ]
         ) ?>

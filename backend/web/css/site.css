@@ -215,3 +215,19 @@ p.time {
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a {
 	background: #1D002D !important;
 }
+
+.skin-blue .main-header li.user-header {
+	background: white !important;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header>p {
+	color: black !important;
+}
+
+.skin-blue .main-header .navbar .dropdown-menu li a {
+	color: black !important;
+}
+
+.content-wrapper {
+	background: white !important;
+}

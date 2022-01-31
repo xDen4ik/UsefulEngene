@@ -35,7 +35,7 @@ use yii\helpers\Html;
 						<li class="footer"><a href="/admin/feedback">Все сообщения</a></li>
 					</ul>
 				</li>
-				<li class="dropdown notifications-menu">
+				<!-- <li class="dropdown notifications-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-bell-o"></i>
 						<span class="label label-warning">10</span>
@@ -43,7 +43,6 @@ use yii\helpers\Html;
 					<ul class="dropdown-menu">
 						<li class="header">You have 10 notifications</li>
 						<li>
-							<!-- inner menu: contains the actual data -->
 							<ul class="menu">
 								<li>
 									<a href="#">
@@ -76,9 +75,9 @@ use yii\helpers\Html;
 						</li>
 						<li class="footer"><a href="#">View all</a></li>
 					</ul>
-				</li>
+				</li> -->
 				<!-- Tasks: style can be found in dropdown.less -->
-				<li class="dropdown tasks-menu">
+			<!-- 	<li class="dropdown tasks-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-flag-o"></i>
 						<span class="label label-danger">9</span>
@@ -86,10 +85,8 @@ use yii\helpers\Html;
 					<ul class="dropdown-menu">
 						<li class="header">You have 9 tasks</li>
 						<li>
-							<!-- inner menu: contains the actual data -->
 							<ul class="menu">
 								<li>
-									<!-- Task item -->
 									<a href="#">
 										<h3>
 											Design some buttons
@@ -102,9 +99,7 @@ use yii\helpers\Html;
 										</div>
 									</a>
 								</li>
-								<!-- end task item -->
 								<li>
-									<!-- Task item -->
 									<a href="#">
 										<h3>
 											Create a nice theme
@@ -117,9 +112,7 @@ use yii\helpers\Html;
 										</div>
 									</a>
 								</li>
-								<!-- end task item -->
 								<li>
-									<!-- Task item -->
 									<a href="#">
 										<h3>
 											Some task I need to do
@@ -132,9 +125,7 @@ use yii\helpers\Html;
 										</div>
 									</a>
 								</li>
-								<!-- end task item -->
 								<li>
-									<!-- Task item -->
 									<a href="#">
 										<h3>
 											Make beautiful transitions
@@ -147,15 +138,13 @@ use yii\helpers\Html;
 										</div>
 									</a>
 								</li>
-								<!-- end task item -->
 							</ul>
 						</li>
 						<li class="footer">
 							<a href="#">View all tasks</a>
 						</li>
 					</ul>
-				</li>
-				<!-- User Account: style can be found in dropdown.less -->
+				</li> -->
 
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -163,7 +152,6 @@ use yii\helpers\Html;
 						<span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
 					</a>
 					<ul class="dropdown-menu">
-						<!-- User image -->
 						<li class="user-header">
 							<img src="<?= Yii::$app->user->identity->img ?>" class="img-circle" alt="User Image" />
 
@@ -187,7 +175,6 @@ use yii\helpers\Html;
 						</li>
 					</ul>
 				</li>
-
 				<!-- User Account: style can be found in dropdown.less -->
 				<li>
 					<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

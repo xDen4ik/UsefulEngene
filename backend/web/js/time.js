@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function (event) {
 var span = document.getElementById('time');
 
 function time() {
@@ -14,3 +15,4 @@ function time() {
 }
 
 setInterval(time, 1000);
+});

@@ -16,11 +16,18 @@ class AppAsset extends AssetBundle
 	];
 	public $js = [
 		'js/time.js',
-		'js/users_visited.js',
 		'js/get_message.js'
 	];
 	public $depends = [
 		'yii\web\YiiAsset',
 		'yii\bootstrap\BootstrapAsset',
 	];
+
+	public function init()
+	{
+		if (\yii::$app->request->url == \yii::$app->homeUrl) {
+			$this->js[] = 'js/users_visited.js';
+		}
+	}
 }
+
