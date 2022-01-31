@@ -1,6 +1,8 @@
 <?php
+
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+
 $this->registerCss('@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 body,
@@ -63,9 +65,14 @@ input:focus :-ms-input-placeholder {
     color: black;
 }
 
+.remember {
+	color: white !important;
+	margin: 0px;
+}
+
 .login-username,
 .login-password {
-    background: transparent;
+    background: white;
     border: 0 solid;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     color: white;
@@ -130,14 +137,14 @@ input:focus :-ms-input-placeholder {
 .underlay-photo {
     -webkit-animation: hue-rotate 6s infinite;
     animation: hue-rotate 6s infinite;
-    background: url("https://31.media.tumblr.com/41c01e3f366d61793e5a3df70e46b462/tumblr_n4vc8sDHsd1st5lhmo1_1280.jpg");
+    background: url("/backend/web/img/login_background.jpg");
     background-size: cover;
     -webkit-filter: grayscale(30%);
     z-index: -1;
 }
 
 .underlay-black {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(0 0 0 / 90%);
     z-index: -1;
 }
 
@@ -162,51 +169,55 @@ input:focus :-ms-input-placeholder {
 $this->title = 'Вход в админ панель';
 ?>
 <div class="login-box">
-    <!-- /.login-logo -->
-    <div class="login-box-body">
+	<!-- /.login-logo -->
+	<div class="login-box-body">
 
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'login-form', 'enableClientValidation' => false]); ?>
+		<?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'login-form', 'enableClientValidation' => false]); ?>
 
-        <p class="login-text">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-lock fa-stack-1x"></i>
-            </span>
-        </p>
+		<p class="login-text">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-lock fa-stack-1x"></i>
+			</span>
+		</p>
 
-        <?= $form->field($model, 'username')->textInput(
-            [
-                'maxlength' => 255, 
-                'class' => 'login-username',
-                'autofocus' => "true",
-                'placeholder' => "Логин"
-            ])->label(false); ?>
+		<?= $form->field($model, 'username')->textInput(
+			[
+				'maxlength' => 255,
+				'class' => 'login-username',
+				'autofocus' => "true",
+				'placeholder' => "Логин",
+				'autocomplete' => "on"
+			]
+		)->label(false); ?>
 
-        <?= $form->field($model, 'password')->textInput(
-            [
-                'maxlength' => 255, 
-                'class' => 'login-username',
-                'autofocus' => "true",
-                'placeholder' => "Пароль",
-                'type' => 'password'
-            ])->label(false); ?>
+		<?= $form->field($model, 'password')->textInput(
+			[
+				'maxlength' => 255,
+				'class' => 'login-username',
+				'autofocus' => "true",
+				'placeholder' => "Пароль",
+				'type' => 'password',
+				'autocomplete' => "on"
+			]
+		)->label(false); ?>
 
-        <div class="row">
-            <div class="col-xs-8">
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            </div>
-            <!-- /.col -->
-            <div class="col-xs-4">
-                <?= Html::submitButton('Вход', ['class' => 'login-submit', 'name' => 'login-button']) ?>
-            </div>
-            <!-- /.col -->
-        </div>
+		<div class="row remember">
+			<div class="col-xs-8">
+				<?= $form->field($model, 'rememberMe')->checkbox() ?>
+			</div>
+			<!-- /.col -->
+			<div class="col-xs-4">
+				<?= Html::submitButton('Вход', ['class' => 'login-submit', 'name' => 'login-button']) ?>
+			</div>
+			<!-- /.col -->
+		</div>
 
-        <?php ActiveForm::end(); ?>
-        <div class="underlay-photo"></div>
-        <div class="underlay-black"></div> 
-        <!-- /.social-auth-links -->
+		<?php ActiveForm::end(); ?>
+		<div class="underlay-photo"></div>
+		<div class="underlay-black"></div>
+		<!-- /.social-auth-links -->
 
-    </div>
-    <!-- /.login-box-body -->
+	</div>
+	<!-- /.login-box-body -->
 </div><!-- /.login-box -->

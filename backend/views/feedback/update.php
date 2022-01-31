@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Feedback */
 
-$this->title = 'Update Feedback: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Feedbacks', 'url' => ['index']];
+$this->title = 'Обновить сообщение № ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Сообщения', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="feedback-update">
 

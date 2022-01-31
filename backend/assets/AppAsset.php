@@ -15,8 +15,6 @@ class AppAsset extends AssetBundle
 		'css/site.css',
 	];
 	public $js = [
-		'js/time.js',
-		'js/get_message.js'
 	];
 	public $depends = [
 		'yii\web\YiiAsset',
@@ -27,6 +25,13 @@ class AppAsset extends AssetBundle
 	{
 		if (\yii::$app->request->url == \yii::$app->homeUrl) {
 			$this->js[] = 'js/users_visited.js';
+		}
+
+		if (\yii::$app->request->url !== '/admin/login') {
+			$this->js[] = [
+				'js/time.js',
+				'js/get_message.js'
+			];
 		}
 	}
 }

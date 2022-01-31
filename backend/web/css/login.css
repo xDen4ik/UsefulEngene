@@ -47,6 +47,10 @@ input:focus :-ms-input-placeholder {
     padding: 0.5rem;
 }
 
+.remember {
+	color: white !important;
+}
+
 .login-text {
     color: white;
     font-size: 1.5rem;
@@ -62,7 +66,7 @@ input:focus :-ms-input-placeholder {
 
 .login-username,
 .login-password {
-    background: transparent;
+    background: white;
     border: 0 solid;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     color: white;
@@ -127,14 +131,14 @@ input:focus :-ms-input-placeholder {
 .underlay-photo {
     -webkit-animation: hue-rotate 6s infinite;
     animation: hue-rotate 6s infinite;
-    background: url("https://31.media.tumblr.com/41c01e3f366d61793e5a3df70e46b462/tumblr_n4vc8sDHsd1st5lhmo1_1280.jpg");
+    background: url("/backend/web/img/login_background.jpg");
     background-size: cover;
     -webkit-filter: grayscale(30%);
     z-index: -1;
 }
 
 .underlay-black {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(0 0 0 / 90%);
     z-index: -1;
 }
 
