@@ -1,32 +1,37 @@
 <aside class="main-sidebar">
 
-    <section class="sidebar">
+	<section class="sidebar">
 
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?=Yii::$app->user->identity->img?>" class="img-circle" alt="User Image"/>
-            </div>
-            <div class="pull-left info">
-                <p><?=Yii::$app->user->identity->username ?></p>
-               <!--  <a href="/admin/users/view?id=<?=Yii::$app->user->id?>"><i class="fa fa-circle text-success"></i></a> -->
-            </div>
-        </div>
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img src="<?= Yii::$app->user->identity->img ?>" class="img-circle" alt="User Image" />
+			</div>
+			<div class="pull-left info">
+				<p><?= Yii::$app->user->identity->username ?></p>
+				<!--  <a href="/admin/users/view?id=<?= Yii::$app->user->id ?>"><i class="fa fa-circle text-success"></i></a> -->
+			</div>
+		</div>
 
-        <!-- search form -->
-        <div class="sidebar-form">
-                <p class="time" id="time"></p>
-        </div>
-        <!-- /.search form -->
+		<!-- search form -->
+		<div class="sidebar-form">
+			<?php
+				Yii::$app->formatter->defaultTimeZone = "Europe/Moscow";
+				Yii::$app->formatter->locale = 'ru-RU';
+			?>
 
-        <?= dmstr\widgets\Menu::widget(
-            [
-                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => [
-                    ['label' => 'Меню', 'options' => ['class' => 'header']],
+			<p class="time" id="time"><?= Yii::$app->formatter->asDate('now', 'yyyy-MM-dd HH:mm:ss'); ?></p>
+		</div>
+		<!-- /.search form -->
+
+		<?= dmstr\widgets\Menu::widget(
+			[
+				'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
+				'items' => [
+					['label' => 'Меню', 'options' => ['class' => 'header']],
 					['label' => 'Сообщения', 'icon' => 'envelope', 'url' => ['/feedback']],
-                    ['label' => 'Пользователи', 'icon' => 'users', 'url' => ['/users']],
-/*                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+					['label' => 'Пользователи', 'icon' => 'users', 'url' => ['/users']],
+					/*                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
@@ -55,10 +60,10 @@
                             ],
                         ],
                     ], */
-                ],
-            ]
-        ) ?>
+				],
+			]
+		) ?>
 
-    </section>
+	</section>
 
 </aside>

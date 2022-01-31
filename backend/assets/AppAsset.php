@@ -28,10 +28,8 @@ class AppAsset extends AssetBundle
 		}
 
 		if (\yii::$app->request->url !== '/admin/login') {
-			$this->js[] = [
-				'js/time.js',
-				'js/get_message.js'
-			];
+			$this->js[] = 'js/time.js';
+			$this->js[] = 'js/get_message.js';
 		}
 	}
 }
