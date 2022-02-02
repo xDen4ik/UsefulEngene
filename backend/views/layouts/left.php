@@ -16,8 +16,8 @@
 		<!-- search form -->
 		<div class="sidebar-form">
 			<?php
-				Yii::$app->formatter->defaultTimeZone = "Europe/Moscow";
-				Yii::$app->formatter->locale = 'ru-RU';
+			Yii::$app->formatter->defaultTimeZone = "Europe/Moscow";
+			Yii::$app->formatter->locale = 'ru-RU';
 			?>
 
 			<p class="time" id="time"><?= Yii::$app->formatter->asDate('now', 'yyyy-MM-dd HH:mm:ss'); ?></p>
@@ -31,10 +31,11 @@
 					['label' => 'Меню', 'options' => ['class' => 'header']],
 					['label' => 'Сообщения', 'icon' => 'envelope', 'url' => ['/feedback']],
 					['label' => 'Пользователи', 'icon' => 'users', 'url' => ['/users']],
+					['label' => 'Посетители сайта', 'icon' => 'eye', 'url' => ['/visitors']],
 					/*                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
+					['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+					['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+					[
                         'label' => 'Some tools',
                         'icon' => 'share',
                         'url' => '#',
@@ -59,7 +60,7 @@
                                 ],
                             ],
                         ],
-                    ], */
+					], */
 				],
 			]
 		) ?>

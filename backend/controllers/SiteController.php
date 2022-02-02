@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
+use backend\models\Visitors;
 use backend\models\AdminStatistics;
 use backend\models\Feedback;
 
@@ -65,11 +66,8 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$users = new User();
-		$users_count = User::find()->count();
-
-		$users_count_visit = new AdminStatistics;
-		$users_visit = AdminStatistics::find()->Where('visit_time >= CURDATE()')->count();
+		$users_count = Visitors::find()->count();
+		$users_visit = Visitors::find()->Where('created_at >= CURDATE()')->count();
 
 		return $this->render('index', [
 			'users_count' => $users_count,
@@ -121,7 +119,7 @@ class SiteController extends Controller
 	 */
 	public function actionGetMessage()
 	{
-		$feedback = Feedback::find()->orderBy(['created_at'=>SORT_DESC])->limit(5)->asArray()->all();
+		$feedback = Feedback::find()->orderBy(['created_at' => SORT_DESC])->limit(5)->asArray()->all();
 		$feedback['total_count'] =	Feedback::find()->count();
 		return $this->asJson($feedback);
 	}

@@ -41,3 +41,5 @@ environments/prod/common/config/main-local.php
 environments/dev/common/config/test-local.php
 environments/dev/common/config/main-local.php
 frontend/web/img
+GeoLite2-City.mmdb
+GeoLite2-Country.mmdb

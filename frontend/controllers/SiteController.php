@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\controllers;
 
 use frontend\models\ResendVerificationEmailForm;
@@ -16,6 +17,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use backend\models\Feedback;
 use yii\widgets\ActiveForm;
+use backend\models\Visitors;
+
 /**
  * Site controller
  */
@@ -80,8 +83,10 @@ class SiteController extends Controller
 	 * @return mixed
 	 */
 	public function actionIndex()
-	{   
+	{
 		$feedback = new Feedback();
+		$visitors = new Visitors();
+		$visitors->saveVisitorInfo();
 		if (\Yii::$app->request->isAjax) {
 			if ($feedback->load(Yii::$app->request->post()) && $feedback->validate()) {
 				if ($feedback->created_at || $feedback->id) {
@@ -91,10 +96,10 @@ class SiteController extends Controller
 				$feedback->save();
 				return "success";
 			} else {
-				if(!empty($feedback->getErrors())){
+				if (!empty($feedback->getErrors())) {
 					$errors = [];
-					foreach($feedback->getErrors() as $key => $value) {
-						foreach($value as $error_message){
+					foreach ($feedback->getErrors() as $key => $value) {
+						foreach ($value as $error_message) {
 							$errors[$key] = $error_message;
 						}
 					}
