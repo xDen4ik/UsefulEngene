@@ -15,6 +15,10 @@ use yii\helpers\Html;
 			<span class="sr-only">Навигация</span>
 		</a>
 
+		<a href="/" class="sidebar-toggle off">
+			<span class="sr-only">На сайт</span>
+		</a>
+
 		<div class="navbar-custom-menu">
 
 			<ul class="nav navbar-nav">
@@ -77,7 +81,7 @@ use yii\helpers\Html;
 					</ul>
 				</li> -->
 				<!-- Tasks: style can be found in dropdown.less -->
-			<!-- 	<li class="dropdown tasks-menu">
+				<!-- 	<li class="dropdown tasks-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-flag-o"></i>
 						<span class="label label-danger">9</span>

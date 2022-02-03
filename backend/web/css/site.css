@@ -199,7 +199,26 @@ p.time {
 }
 
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-	background: linear-gradient(#1D002D, 80%, pink);
+	background: linear-gradient(#1D002D, 80%, #ff90a4);
+}
+.control-sidebar-dark {
+	background: transparent !important;
+}
+.control-sidebar-dark+.control-sidebar-bg {
+	background-color: transparent !important;
+	background: linear-gradient(#1D002D, 80%, #ff90a4) !important;
+}
+
+.control-sidebar-dark .control-sidebar-menu>li>a:hover {
+	background: #341a42 !important;
+}
+
+.control-sidebar-dark .nav-tabs.control-sidebar-tabs>li>a {
+	background: #341a42 !important;
+}
+
+.control-sidebar-dark .nav-tabs.control-sidebar-tabs>li.active>a, .control-sidebar-dark .nav-tabs.control-sidebar-tabs>li.active>a:hover, .control-sidebar-dark .nav-tabs.control-sidebar-tabs>li.active>a:focus, .control-sidebar-dark .nav-tabs.control-sidebar-tabs>li.active>a:active {
+	background: #1D002D !important;
 }
 
 .skin-blue .sidebar-menu>li.header {
@@ -230,4 +249,8 @@ p.time {
 
 .content-wrapper {
 	background: white !important;
+}
+
+.main-header .sidebar-toggle.off:before {
+	content: "\f112" !important;
 }

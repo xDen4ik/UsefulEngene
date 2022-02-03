@@ -32,7 +32,8 @@
 					['label' => 'Сообщения', 'icon' => 'envelope', 'url' => ['/feedback']],
 					['label' => 'Пользователи', 'icon' => 'users', 'url' => ['/users']],
 					['label' => 'Посетители сайта', 'icon' => 'eye', 'url' => ['/visitors']],
-					/*                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+					['label' => 'Меню разработчика', 'options' => ['class' => 'header']],
+					                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
 					['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
 					['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
 					[
@@ -60,7 +61,7 @@
                                 ],
                             ],
                         ],
-					], */
+					],
 				],
 			]
 		) ?>

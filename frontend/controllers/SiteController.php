@@ -84,6 +84,8 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		// Set page title
+		Yii::$app->view->title = "Denis Pacha";
 		$feedback = new Feedback();
 		$visitors = new Visitors();
 		$visitors->saveVisitorInfo();

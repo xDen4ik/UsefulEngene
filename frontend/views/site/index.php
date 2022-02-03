@@ -19,10 +19,12 @@ use  yii\helpers\Url;
 		<div id="viewport" class="l-viewport">
 			<div class="l-wrapper">
 				<header class="header">
-					<a class="header--logo" href="/">
+					<a class="header--logo" href='/<? if (Yii::$app->user->identity && Yii::$app->user->identity->id_user_role == 1) {
+															echo ('admin');
+														} ?>'>
 						<p>Denis Pacha</p>
 					</a>
-					<button class="header--cta cta">Напиши мне</button>
+
 					<div class="header--nav-toggle">
 						<span></span>
 					</div>

@@ -66,6 +66,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		// Set page title
+		Yii::$app->view->title = "Панель администратора";
+
 		$users_count = Visitors::find()->count();
 		$users_visit = Visitors::find()->Where('created_at >= CURDATE()')->count();
 
