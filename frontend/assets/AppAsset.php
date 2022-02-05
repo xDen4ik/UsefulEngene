@@ -18,6 +18,7 @@ class AppAsset extends AssetBundle
         'js/functions.js',
         'js/functions-min.js',
         'js/vendor/hammer-2.0.8.js',
+		'js/three.js'
      //   'js/vendor/jquery-2.2.4.min.js',
     ];
     public $depends = [

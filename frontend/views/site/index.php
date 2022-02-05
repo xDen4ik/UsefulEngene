@@ -20,9 +20,9 @@ use  yii\helpers\Url;
 			<div class="l-wrapper">
 				<header class="header">
 					<a class="header--logo" href='/<? if (Yii::$app->user->identity && Yii::$app->user->identity->id_user_role == 1) {
-															echo ('admin');
-														} ?>'>
-						<p>Denis Pacha</p>
+														echo ('admin');
+													} ?>'>
+						<p style="font-size: 30px;">Denis Pacha</p>
 					</a>
 
 					<div class="header--nav-toggle">
@@ -55,7 +55,8 @@ use  yii\helpers\Url;
 									</svg>
 									<span class="btn-background"></span>
 								</button>
-								<img src="/frontend/web/img/frontend/introduction-visual.png" alt="Welcome">
+								<div class="model-display"></div>
+								<!-- <img src="/frontend/web/img/frontend/introduction-visual.png" alt="Welcome"> -->
 							</div>
 							<div class="intro--options">
 								<ul class="list6a">
@@ -235,3 +236,102 @@ use  yii\helpers\Url;
 		<li>Напиши мне</li>
 	</ul>
 </div>
+
+
+<script type="module">
+	import {
+		OrbitControls
+	} from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
+	import {
+		GLTFLoader
+	} from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';
+
+	let scene;
+	let camera;
+	let renderer;
+
+	function init() {
+
+		let container = document.querySelector('.model-display');
+
+		//Scene
+		scene = new THREE.Scene()
+		scene.background = new THREE.Color(0x0C0C0C);
+
+		//Camera
+		camera = new THREE.PerspectiveCamera(5, 430 / 500, 0.1, 500);
+		camera.position.z = 500;
+		camera.position.y = 0;
+		camera.position.x = 100;
+
+		//render
+		renderer = new THREE.WebGLRenderer({
+			antialias: true
+		})
+		if (window.innerWidth > 775) {
+			renderer.setSize(430, 500);
+		} else {
+			renderer.setSize(0, 0);
+		}
+
+		container.appendChild(renderer.domElement)
+
+		//OrbitControls
+		const controls = new OrbitControls(camera, renderer.domElement);
+		controls.update();
+		controls.enableDamping = true;
+		controls.minDistance = 50;
+		controls.maxDistance = 55;
+		//light
+		const ambient = new THREE.AmbientLight(0xffffff, 1);
+		scene.add(ambient)
+
+		let light = new THREE.PointLight(0xc4c4c4, 1);
+		light.position.set(0, 430, 500);
+		scene.add(light)
+
+		let light2 = new THREE.PointLight(0xc4c4c4, 1);
+		light2.position.set(500, 300, 500);
+		scene.add(light2)
+
+		let light3 = new THREE.PointLight(0xc4c4c4, 1);
+		light3.position.set(0, 300, -500);
+		scene.add(light3)
+
+		let light4 = new THREE.PointLight(0xc4c4c4, 1);
+		light4.position.set(-500, 300, 500);
+		scene.add(light4)
+
+		//model
+		const loader = new GLTFLoader();
+		loader.load('./model/scene.gltf', gltf => {
+				scene.add(gltf.scene);
+			},
+			function(error) {
+				console.log('Error: ' + error)
+			}
+		)
+
+		//Resize
+		window.addEventListener('resize', onWindowResize, false)
+
+		function onWindowResize() {
+			if (window.innerWidth < 775) {
+				renderer.setSize(0, 0)
+			} else {
+				camera.aspect = 430 / 500;
+				camera.updateProjectionMatrix();
+				renderer.setSize(430, 500)
+			}
+		}
+
+		function animate() {
+			requestAnimationFrame(animate)
+			controls.update();
+			renderer.render(scene, camera)
+		}
+		animate()
+	}
+
+	init();
+</script>
