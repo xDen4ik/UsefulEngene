@@ -1306,7 +1306,7 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    max-width: 400px;
+    /* max-width: 400px; */
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
@@ -1319,21 +1319,25 @@ body {
 .about--options>a {
     position: relative;
     width: 150px;
-    height: 75px;
+    height: 150px;
     text-decoration: none;
     color: #fff;
-    border: 10px solid #0f33ff;
+    border: 10px solid #ffffff00;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat
 }
 
 .about--options>a:nth-child(1) {
-    background-image: url("/frontend/web/img/frontend/web.png");
+    background-image: url("https://img.icons8.com/color/344/contract-job.png");
 }
 
 .about--options>a:nth-child(2) {
-    background-image: url("/frontend/web/img/frontend/secure.jpg")
+    background-image: url("https://img.icons8.com/color/344/contract-job.png")
+}
+
+.about--options>a:nth-child(3) {
+	background-image: url("https://img.icons8.com/color/344/contract-job.png")
 }
 
 .about--options>a:hover h3 {

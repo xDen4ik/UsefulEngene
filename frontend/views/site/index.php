@@ -134,6 +134,14 @@ use  yii\helpers\Url;
 											<p class="slider--item-title">Косметика</p>
 										</a>
 									</li>
+									<li class="slider--item">
+										<a href="https://ladybug.com/" target="_blank">
+											<div class="slider--item-image">
+												<img src="/frontend/web/img/frontend/travel.jpg" alt="Travel">
+											</div>
+											<p class="slider--item-title">Путешествия</p>
+										</a>
+									</li>
 								</ul>
 								<h3>И многое другое...</h3>
 								<div class="slider--prev">
@@ -176,6 +184,9 @@ use  yii\helpers\Url;
 								</a>
 								<a href="https://ua.linkedin.com/company/secure12-inc?trk=public_profile_experience-item_result-card_subtitle-click" target="_blank">
 									<h3>Secure12</h3>
+								</a>
+								<a href="http://svetofore.ru/" target="_blank">
+									<h3>ООО Витал</h3>
 								</a>
 							</div>
 						</div>
