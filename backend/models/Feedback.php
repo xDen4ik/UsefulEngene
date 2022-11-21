@@ -29,7 +29,7 @@ class Feedback extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['name', 'email', 'message'], 'required', 'message' => '{attribute} нужно заполнить! '],
+			[['name', 'email', 'message'], 'required', 'message' => '{attribute} нужно заполнить!'],
 			[['name', 'email'], 'string', 'max' => 60, 'message' => 'Длина {attribute} 255 символов!'],
 			[['name'], 'string', 'message' => '{attribute} должно быть текстовое!'],
 			['email', 'email', 'message' => '{attribute} указан не верно!'],

@@ -19,13 +19,14 @@ use  yii\helpers\Url;
 		<div id="viewport" class="l-viewport">
 			<div class="l-wrapper">
 				<header class="header">
-					<a class="header--logo" href='/<? if (Yii::$app->user->identity && Yii::$app->user->identity->id_user_role == 1) {
-														echo ('admin');
-													} ?>'>
-						<p style="font-size: 30px;">Denis Pacha</p>
+					<a class="header--logo" href='/
+					<? if (Yii::$app->user->identity && Yii::$app->user->identity->id_user_role == 1) {
+						echo ('admin');
+					} ?>'>
+						<p class="header-name" id="header-name">Denis Pacha</p>
 					</a>
 
-					<div class="header--nav-toggle">
+					<div class=" header--nav-toggle">
 						<span></span>
 					</div>
 				</header>
@@ -58,23 +59,33 @@ use  yii\helpers\Url;
 								<div class="model-display"></div>
 								<!-- <img src="/frontend/web/img/frontend/introduction-visual.png" alt="Welcome"> -->
 							</div>
+							<h1 class="skills-title">С чем работал</h1>
 							<div class="intro--options">
 								<ul class="list6a">
 									<li>HTML</li>
-									<li>CSS</li>
-									<li>PHP</li>
-									<li>MySQL</li>
-									<li>JSON</li>
-									<li>AJAX</li>
-									<li>Composer</li>
-									<li>GIT</li>
-									<li>Slimphp 3</li>
-									<li>Bootstrap</li>
+									<li>Ajax</li>
 									<li>Javascript</li>
+									<li>MySQL</li>
+									<li>CSS</li>
+									<li>JSON</li>
+									<li>Composer</li>
+									<li>Git console</li>
+									<li>PHP</li>
+									<li>Bootstrap</li>
+									<li>SMS Aero</li>
 									<li>Jquery</li>
-									<li>Osclass</li>
+									<li>Yii2</li>
 									<li>Joomla 3</li>
-									<li>YII2</li>
+									<li>Docker</li>
+									<li>Osclass</li>
+									<li>Slim 3</li>
+									<li>Symfony</li>
+									<li>Robokassa</li>
+									<li>Bepaid</li>
+									<li>Bitrix</li>
+									<li>Gitlab</li>
+									<li>Data parsing</li>
+									<li>TimeDoctor</li>
 								</ul>
 
 							</div>
@@ -182,11 +193,14 @@ use  yii\helpers\Url;
 								<a href="https://wsteam.com.ru/" target="_blank">
 									<h3>WebStormTeam</h3>
 								</a>
-								<a href="https://ua.linkedin.com/company/secure12-inc?trk=public_profile_experience-item_result-card_subtitle-click" target="_blank">
-									<h3>Secure12</h3>
+								<a href="https://ladybugs.com/" target="_blank">
+									<h3>Ladybugs</h3>
 								</a>
 								<a href="http://svetofore.ru/" target="_blank">
 									<h3>ООО Витал</h3>
+								</a>
+								<a href="https://sunadv.agency/" target="_blank">
+									<h3>SunAdv</h3>
 								</a>
 							</div>
 						</div>
@@ -197,12 +211,12 @@ use  yii\helpers\Url;
 								<div class="modal">
 									<div class="modal--information">
 										<a href="mailto:cool.den0@yandex.ru">cool.den0@yandex.ru</a>
-										<a href="tel:+380713302521">+38 071 330 25 21</a>
+										<a href="tel:+79888922072">+7 (988) 892-20-72 </a>
 									</div>
 									<ul class="modal--options">
 										<li><a href="https://github.com/xDen4ik" target="_blank">GitHub</a></li>
 										<li><a href="https://vk.com/dennnnnnnnnnn" target="_blank">VK</a></li>
-										<li><a href="https://t.me/KekTor" target="_blank"> Telegram</a></li>
+										<li><a href="https://t.me/onlyglobalelite" target="_blank"> Telegram</a></li>
 									</ul>
 								</div>
 							</div>
@@ -262,7 +276,6 @@ use  yii\helpers\Url;
 	let renderer;
 
 	function init() {
-
 		let container = document.querySelector('.model-display');
 
 		//Scene
@@ -341,7 +354,23 @@ use  yii\helpers\Url;
 			controls.update();
 			renderer.render(scene, camera)
 		}
-		animate()
+		animate();
+
+		const setBg = () => {
+			var colors = [
+				'white',
+				'#0f33ff'
+			];
+			var randomNumber = Math.floor(Math.random() * colors.length);
+			//const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+			$('.header--logo').css("color", colors[randomNumber]);
+		}
+
+		function setColor() {
+			setBg();
+			setTimeout(setColor, 3000);
+		}
+		setColor();
 	}
 
 	init();

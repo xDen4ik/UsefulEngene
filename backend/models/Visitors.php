@@ -64,7 +64,7 @@ class Visitors extends \yii\db\ActiveRecord
 
 		// check localhost ip
 		if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1") {
-			$ip = "91.218.33.201";
+			return;
 		}
 
 		$find_user = Visitors::find()->where(['ip' => $ip])->one();

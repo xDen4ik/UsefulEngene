@@ -5,6 +5,7 @@ $(document).ready(function() {
     $("#btn-send").click(function(event) {
         var data = $("#contact-form").serialize();
         var action = $("#contact-form").attr("action");
+		$("#btn-send").attr("disabled", true);
         $.ajax({
             url: action,
             type: "POST",
@@ -18,6 +19,7 @@ $(document).ready(function() {
                         timeout: 2000,
                     }).show();
                     document.getElementById("contact-form").reset();
+					$("#btn-send").removeAttr("disabled");
                 } else {
                     error = JSON.parse(JSON.stringify(req.responseJSON));
                     for (var i = 0 in error) {
@@ -28,6 +30,7 @@ $(document).ready(function() {
                             timeout: 2000,
                         }).show();
                     }
+					$("#btn-send").removeAttr("disabled");
                 }
             },
         });
