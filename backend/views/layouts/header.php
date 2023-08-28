@@ -7,39 +7,40 @@ use yii\helpers\Html;
 ?>
 <header class="main-header">
 
-	<?= Html::a('<span class="logo-mini">UE</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">UE</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
-	<nav class="navbar navbar-static-top" role="navigation">
+    <nav class="navbar navbar-static-top" role="navigation">
 
-		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-			<span class="sr-only">Навигация</span>
-		</a>
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Навигация</span>
+        </a>
 
-		<a href="/" class="sidebar-toggle off">
-			<span class="sr-only">На сайт</span>
-		</a>
+        <a href="/" class="sidebar-toggle off">
+            <span class="sr-only">На сайт</span>
+        </a>
 
-		<div class="navbar-custom-menu">
+        <div class="navbar-custom-menu">
 
-			<ul class="nav navbar-nav">
+            <ul class="nav navbar-nav">
 
-				<!-- Messages: style can be found in dropdown.less-->
-				<li class="dropdown messages-menu">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-envelope-o"></i>
-						<span id="message-count" class="label label-success"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li class="header">Сообщения</li>
-						<li>
-							<!-- inner menu: contains the actual data -->
-							<ul class="menu">
-							</ul>
-						</li>
-						<li class="footer"><a href="/admin/feedback">Все сообщения</a></li>
-					</ul>
-				</li>
-				<!-- <li class="dropdown notifications-menu">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <span id="message-count" class="label label-success"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">Сообщения</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>Новых сообщений нет</li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="/admin/feedback">Все сообщения</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="dropdown notifications-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-bell-o"></i>
 						<span class="label label-warning">10</span>
@@ -80,8 +81,8 @@ use yii\helpers\Html;
 						<li class="footer"><a href="#">View all</a></li>
 					</ul>
 				</li> -->
-				<!-- Tasks: style can be found in dropdown.less -->
-				<!-- 	<li class="dropdown tasks-menu">
+                <!-- Tasks: style can be found in dropdown.less -->
+                <!-- 	<li class="dropdown tasks-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-flag-o"></i>
 						<span class="label label-danger">9</span>
@@ -150,40 +151,40 @@ use yii\helpers\Html;
 					</ul>
 				</li> -->
 
-				<li class="dropdown user user-menu">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="<?= Yii::$app->user->identity->img ?>" class="user-image" alt="User Image" />
-						<span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li class="user-header">
-							<img src="<?= Yii::$app->user->identity->img ?>" class="img-circle" alt="User Image" />
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="<?= Yii::$app->user->identity->img ?>" class="user-image" alt="User Image" />
+                        <span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-header">
+                            <img src="<?= Yii::$app->user->identity->img ?>" class="img-circle" alt="User Image" />
 
-							<p>
-								<?= Yii::$app->user->identity->username ?>
-								<small>Email: <a href="mailto:<?= Yii::$app->user->identity->email ?>"><?= Yii::$app->user->identity->email ?></a></small>
-							</p>
-						</li>
-						<!-- Menu Footer-->
-						<li class="user-footer">
-							<div class="pull-left">
-								<a href="/admin/users/view?id=<?= Yii::$app->user->id ?>" class="btn btn-default btn-flat">Профиль</a>
-							</div>
-							<div class="pull-right">
-								<?= Html::a(
-									'Выход',
-									['/site/logout'],
-									['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
-								) ?>
-							</div>
-						</li>
-					</ul>
-				</li>
-				<!-- User Account: style can be found in dropdown.less -->
-				<li>
-					<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+                            <p>
+                                <?= Yii::$app->user->identity->username ?>
+                                <small>Email: <a href="mailto:<?= Yii::$app->user->identity->email ?>"><?= Yii::$app->user->identity->email ?></a></small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="/admin/users/view?id=<?= Yii::$app->user->id ?>" class="btn btn-default btn-flat">Профиль</a>
+                            </div>
+                            <div class="pull-right">
+                                <?= Html::a(
+                                    'Выход',
+                                    ['/site/logout'],
+                                    ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                ) ?>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- User Account: style can be found in dropdown.less -->
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>

@@ -148,7 +148,7 @@ use  yii\helpers\Url;
 									<li class="slider--item">
 										<a href="https://ladybug.com/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/travel.jpg" alt="Travel">
+												<img src="/frontend/web/img/travel.png" alt="Travel">
 											</div>
 											<p class="slider--item-title">Путешествия</p>
 										</a>

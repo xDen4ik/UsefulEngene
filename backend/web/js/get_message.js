@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 	getMessages();
-	setInterval(getMessages, 10000);
-	
+	setInterval(getMessages, 60000);
+
 	function getMessages() {
-		$('.menu').empty();
+		$(".menu").append('<li>Новых сообщений нет</li >');
+
 		$.ajax({
 			url: '/admin/site/get-message',
 			type: 'GET',
