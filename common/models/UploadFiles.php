@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use Exception;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
@@ -46,7 +47,7 @@ class UploadFiles extends Model
 		}
         try {
             unlink($_SERVER['DOCUMENT_ROOT'] . $img_path);
-        } catch(CDbException $e){
+        } catch(Exception $e){
 		}
     }
 }

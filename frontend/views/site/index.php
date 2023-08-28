@@ -8,8 +8,8 @@ use  yii\helpers\Url;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <div class="device-notification">
 	<a class="device-notification--logo" href="/">
-		<!-- <img src="/frontend/web/img/frontend/logo.png" alt="Denis Pacha"> -->
-		<p>Global</p>
+		<!-- <img src="/frontend/web/img/logo.png" alt="Denis Pacha"> -->
+		<p>Denis Pacha</p>
 	</a>
 	<p class="device-notification--message">Хммм. Так не очень удобно смотреть, попробуйте сделать разрешение больше!</p>
 </div>
@@ -57,7 +57,7 @@ use  yii\helpers\Url;
 									<span class="btn-background"></span>
 								</button>
 								<div class="model-display"></div>
-								<!-- <img src="/frontend/web/img/frontend/introduction-visual.png" alt="Welcome"> -->
+								<!-- <img src="/frontend/web/img/introduction-visual.png" alt="Welcome"> -->
 							</div>
 							<h1 class="skills-title">С чем работал</h1>
 							<div class="intro--options">
@@ -107,15 +107,15 @@ use  yii\helpers\Url;
 									<li class="slider--item slider--item-left">
 										<a href="https://safehouse.moscow/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/safehouse.jpg" alt="Safehouse">
+												<img src="/frontend/web/img/safehouse.jpg" alt="Safehouse">
 											</div>
-											<p class="slider--item-title">Виодеонаблюдение</p>
+											<p class="slider--item-title">Видеонаблюдение</p>
 										</a>
 									</li>
 									<li class="slider--item slider--item-center">
 										<a href="http://martinkids.mcdir.ru/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/duplom.jpg" alt="Duplom">
+												<img src="/frontend/web/img/duplom.jpg" alt="Duplom">
 											</div>
 											<p class="slider--item-title">Дипломы</p>
 											<p class="slider--item-description"></p>
@@ -124,7 +124,7 @@ use  yii\helpers\Url;
 									<li class="slider--item slider--item-right">
 										<a href="http://xn--80aclb1abqfcfh0agd.xn--p1ai/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/beton.jpg" alt="Beton">
+												<img src="/frontend/web/img/beton.jpg" alt="Beton">
 											</div>
 											<p class="slider--item-title">Cтройматериалы</p>
 										</a>
@@ -132,7 +132,7 @@ use  yii\helpers\Url;
 									<li class="slider--item">
 										<a href="https://ilab73.ru/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/remonline.jpg" alt="Remonline">
+												<img src="/frontend/web/img/remonline.jpg" alt="Remonline">
 											</div>
 											<p class="slider--item-title">Телефоны</p>
 										</a>
@@ -140,7 +140,7 @@ use  yii\helpers\Url;
 									<li class="slider--item">
 										<a href="https://hlc.com.cy/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/cosmetics.jpg" alt="Сosmetics">
+												<img src="/frontend/web/img/cosmetics.jpg" alt="Сosmetics">
 											</div>
 											<p class="slider--item-title">Косметика</p>
 										</a>
@@ -148,7 +148,7 @@ use  yii\helpers\Url;
 									<li class="slider--item">
 										<a href="https://ladybug.com/" target="_blank">
 											<div class="slider--item-image">
-												<img src="/frontend/web/img/frontend/travel.jpg" alt="Travel">
+												<img src="/frontend/web/img/travel.jpg" alt="Travel">
 											</div>
 											<p class="slider--item-title">Путешествия</p>
 										</a>

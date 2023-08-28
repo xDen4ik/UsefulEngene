@@ -25,7 +25,7 @@ class Visitors extends \yii\db\ActiveRecord
 	 */
 	public static function tableName()
 	{
-		return 'Visitors';
+		return 'visitors';
 	}
 
 	/**
@@ -61,9 +61,8 @@ class Visitors extends \yii\db\ActiveRecord
 	public function saveVisitorInfo()
 	{
 		$ip = $_SERVER['REMOTE_ADDR'];
-
 		// check localhost ip
-		if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1") {
+		if ($ip == "127.0.0.1") {
 			return;
 		}
 

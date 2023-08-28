@@ -20,6 +20,9 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+# vs code
+/.vscode
+
 # composer itself is not needed
 composer.phar
 

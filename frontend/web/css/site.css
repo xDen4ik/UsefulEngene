@@ -433,7 +433,7 @@ body {
 	}
 }
 
-@media(max-width: 359px) {
+@media(max-width: 315px) {
 	.device-notification {
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -712,6 +712,13 @@ body {
 	}
 }
 
+@media (max-width: 700px) {
+	.intro {
+		max-width: 100%;
+		height: 80%;
+	}
+}
+
 .intro--banner {
 	position: relative;
 	height: 475px
@@ -948,7 +955,8 @@ body {
 	}
 
 	.intro--options {
-		display: block
+		display: block;
+		height: 25%;
 	}
 
 	.intro--options>a {
@@ -968,7 +976,13 @@ body {
 	}
 
 	.intro--banner h1 {
-		font-size: 55px
+		font-size: 40px;
+		padding-top: 10%;
+		padding-left: 8px;
+	}
+
+	.intro--banner p {
+		padding-left: 8px;
 	}
 
 	.intro--banner img {
@@ -990,8 +1004,8 @@ body {
 		margin-top: 0
 	}
 
-	.intro--options {
-		display: none
+	.skills-title {
+		display: none;
 	}
 }
 
@@ -1422,7 +1436,7 @@ body {
 
 @media (max-width: 600px) {
 	.about--banner {
-		height: auto
+		height: 35%
 	}
 
 	.about--banner::before {
@@ -1452,9 +1466,13 @@ body {
 		display: none
 	}
 
-	.about--options {
-		display: none
+	.about--banner h2 {
+		font-size: 30px;
 	}
+}
+
+.contact {
+	height: 90%;
 }
 
 .contact--lockup {
@@ -1569,7 +1587,7 @@ body {
 
 @media (max-width: 1180px) {
 	.hire {
-		max-width: 100%
+		max-width: 100%;
 	}
 }
 
@@ -1577,6 +1595,16 @@ body {
 	margin: 0 0 20px 0;
 	font-size: 30px;
 	text-align: center
+}
+
+@media (max-width: 600px) {
+	.hire h2 {
+		font-size: 22px;
+	}
+
+	.message {
+		height: 70px;
+	}
 }
 
 .work-request {
@@ -1798,7 +1826,7 @@ body {
 	.work-request--information .information-name,
 	.work-request--information .information-email {
 		height: 40px;
-		font-size: 24px
+		font-size: 18px;
 	}
 }
 
@@ -1854,7 +1882,7 @@ body {
 .outer-nav {
 	position: absolute;
 	top: 50%;
-	left: 55%;
+	left: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	-webkit-transform-style: preserve-3d;
@@ -1931,7 +1959,7 @@ body {
 
 @media (max-width: 767px) {
 	.outer-nav>li {
-		font-size: 44px
+		font-size: 30px
 	}
 }
 
@@ -1949,7 +1977,13 @@ body {
 
 @media (max-width: 600px) {
 	.outer-nav>li {
-		font-size: 34px
+		font-size: 30px
+	}
+}
+
+@media (max-width: 600px) {
+	.list6a li {
+		font-size: 12px
 	}
 }
 
@@ -1971,4 +2005,21 @@ body {
 .outer-nav li.is-vis:nth-child(5) {
 	-webkit-transition-delay: .16s;
 	transition-delay: .16s
+}
+
+@media (max-width: 700px) {
+	.about--options>a {
+		height: 110px;
+		width: 180 px;
+	}
+
+	.about--options h3 {
+		font-size: 8px;
+		left: 0px;
+		bottom: -30px;
+	}
+
+	.about--options {
+		height: 30%;
+	}
 }
